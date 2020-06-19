@@ -1,0 +1,5 @@
+name: Falldamagemodifier
+version: ${project.version}
+main: me.border.falldamagemodifier.FallDamageModifier
+api-version: 1.13
+authors: [MrBorder]
