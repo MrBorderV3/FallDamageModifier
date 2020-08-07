@@ -9,14 +9,15 @@ import org.bukkit.event.entity.EntityDamageEvent;
 
 public class DamageHandler implements Listener {
     FallDamageModifier plugin = FallDamageModifier.getInstance();
-
-    int percentage = 0;
-    boolean set = false;
+    
+    public DamageHandler(){
+        setFallDamage();
+    }
 
     @EventHandler (priority = EventPriority.HIGHEST)
     public void onDamage(EntityDamageEvent e) {
-        if (percentage == 0 && !set) {
-            setFallDamage();
+        if (percentage == 0) {
+            return;
         }
         if (e.getEntity() instanceof Player) {
             if (e.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
@@ -29,9 +30,8 @@ public class DamageHandler implements Listener {
         }
     }
 
-    void setFallDamage() {
+    private void setFallDamage() {
         percentage = plugin.getConfig().getInt("Modifier"); // Only modifies down
-        set = true;
     }
 
 }
