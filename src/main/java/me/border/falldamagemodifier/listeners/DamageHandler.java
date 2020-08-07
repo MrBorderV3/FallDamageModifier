@@ -9,7 +9,8 @@ import org.bukkit.event.entity.EntityDamageEvent;
 
 public class DamageHandler implements Listener {
     FallDamageModifier plugin = FallDamageModifier.getInstance();
-    
+    private int percentage = 0;
+        
     public DamageHandler(){
         setFallDamage();
     }
